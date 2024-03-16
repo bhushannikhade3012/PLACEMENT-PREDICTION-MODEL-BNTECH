@@ -2,7 +2,10 @@ import pickle
 import time
 import streamlit as st
 
-prediction_model = pickle.load(open('placement_model.sav', 'rb'))
+try:
+    prediction_model = pickle.load(open('placement_model.sav', 'rb'))
+except Exception as e:
+    print("Error loading the model:", e)
 
 st.title("Placement Prediction Model")
 
